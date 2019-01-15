@@ -164,7 +164,7 @@ export class ListComponent implements OnInit {
     "machineName": "list"
   };
 
-  private lists: Array<object> = [];
+  lists:any;
 
   constructor(private apiService: ApiService) { }
 
