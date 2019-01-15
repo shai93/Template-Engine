@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" class="textCenter">Template</th>
+            <th scope="col" class="textCenter">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of lists let i=index">
+            <td scope="row">{{i + 1}}</td>
+            <td class="textCenter">{{list.name}}</td>
+            <td class="textCenter">
+              <a class="btn btn-default btn-xs" [routerLink]="['/edit', list.name]"><i class="fa fa-pencil-square-o"
+                  aria-hidden="true"></i> Edit</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
