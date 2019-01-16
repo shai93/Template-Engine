@@ -34,7 +34,7 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit(submission: any) {
-    console.log("form data", submission);
+    console.log("form data", submission.data);
     this.apiService.updateTemplate(submission.data).subscribe((response) => {
       console.log(response);
     });

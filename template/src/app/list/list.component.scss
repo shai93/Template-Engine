@@ -1,18 +1,36 @@
 .container{
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 thead{
-    background-color: #43ac6a;
-    border-color: #3c9a5f;
+    background-color: #337ab7;
+    border-color: #337ab7;
     color: white;
 }
 
 .textCenter{
       text-align: center;
 }
+.textLeft{
+    text-align: left;
+}
+.textRight{
+    text-align: right;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #008cba;
+    border-color: #0079a1;
+}
 
-a:hover { 
-    background: blue;
-    color: white;
+.btn-default {
+    color: #333;
+    background-color: #e7e7e7;
+    border-color: #ccc;
+    margin-left: 2px;
+}
+
+#topaddbutton{
+    float: right;
+    margin-bottom: 10px;
 }

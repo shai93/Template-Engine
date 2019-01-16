@@ -9,19 +9,19 @@ const routes: Routes = [
     component:CreatetemplateComponent
   },
   {
-    path:'create',
+    path:'template-engine-cp/create',
     component:CreatetemplateComponent
   },
   {
-    path:'list',
+    path:'template-engine-cp/list',
     component:ListComponent
   },
   {
-    path:'edit',
+    path:'template-engine-cp/edit',
     component:EditComponent
   },
   {
-    path:'edit/:name',
+    path:'template-engine-cp/edit/:name',
     component:EditComponent
   }
   

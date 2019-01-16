@@ -10,7 +10,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 })
 export class ApiService {
 
-  API_URL = 'http://breeze.accion.rocks/template-engine-api/api/v1';
+  API_URL = 'https://breeze.accion.rocks/template-engine-api/api/v1';
 
   constructor(private http: HttpClient) { }
 
