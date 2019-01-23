@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreatetemplateComponent } from './createtemplate.component';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { FormioModule } from 'angular-formio';
+import { ApiService } from '../api.service';
+
 
 describe('CreatetemplateComponent', () => {
   let component: CreatetemplateComponent;
@@ -8,9 +12,11 @@ describe('CreatetemplateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreatetemplateComponent ]
+      imports: [FormioModule, HttpClientTestingModule],
+      declarations: [CreatetemplateComponent],
+      providers: [ApiService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -20,6 +26,7 @@ describe('CreatetemplateComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const apiService = TestBed.get(ApiService);
+    expect(apiService).toBeTruthy();
   });
 });
