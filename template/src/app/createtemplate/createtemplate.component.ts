@@ -7,12 +7,20 @@ import { ApiService } from '../api.service';
   styleUrls: ['./createtemplate.component.scss']
 })
 export class CreatetemplateComponent implements OnInit {
-  
+
+  /**
+   * creates instance of CreatetemplateComponent
+   * @param apiService 
+   */
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
   }
 
+  /**
+   * submit form data
+   * @param submission 
+   */
   onSubmit(submission: any) {
     console.log("form data", submission);
     this.apiService.createTemplate(submission.data).subscribe((response) => {

@@ -173,12 +173,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/list/list.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/list/list.component.ts:15</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Create instance of ListComponent</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -242,13 +244,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/list/list.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/list/list.component.ts:31</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>get all templates</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -280,7 +284,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/list/list.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/list/list.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -330,10 +334,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/list/list.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/list/list.component.ts:15</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>lists of all templates</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -354,8 +364,15 @@ import { ApiService } from &#x27;../api.service&#x27;;
 })
 export class ListComponent implements OnInit {
 
-  lists:any;
+  /**
+   * lists of all templates
+   */
+  lists: any;
 
+  /**
+   * Create instance of ListComponent
+   * @param apiService 
+   */
   constructor(private apiService: ApiService) { }
 
 
@@ -363,6 +380,9 @@ export class ListComponent implements OnInit {
     this.getTemplates();
   }
 
+  /**
+   * get all templates
+   */
   getTemplates() {
     this.apiService.getTemplates().subscribe((data: any) &#x3D;&gt; {
       this.lists &#x3D; data.templates;

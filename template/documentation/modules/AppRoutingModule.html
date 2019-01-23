@@ -73,30 +73,33 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 import { CreatetemplateComponent } from &#x27;./createtemplate/createtemplate.component&#x27;;
-import {ListComponent} from &#x27;./list/list.component&#x27;;
-import {EditComponent} from &#x27;./edit/edit.component&#x27;;
+import { ListComponent } from &#x27;./list/list.component&#x27;;
+import { EditComponent } from &#x27;./edit/edit.component&#x27;;
+/**
+ * define all routings
+ */
 const routes: Routes &#x3D; [
   {
-    path:&#x27;&#x27;,
-    component:CreatetemplateComponent
+    path: &#x27;&#x27;,
+    component: CreatetemplateComponent
   },
   {
-    path:&#x27;template-engine-cp/create&#x27;,
-    component:CreatetemplateComponent
+    path: &#x27;template-engine-cp/create&#x27;,
+    component: CreatetemplateComponent
   },
   {
-    path:&#x27;template-engine-cp/list&#x27;,
-    component:ListComponent
+    path: &#x27;template-engine-cp/list&#x27;,
+    component: ListComponent
   },
   {
-    path:&#x27;template-engine-cp/edit&#x27;,
-    component:EditComponent
+    path: &#x27;template-engine-cp/edit&#x27;,
+    component: EditComponent
   },
   {
-    path:&#x27;template-engine-cp/edit/:name&#x27;,
-    component:EditComponent
+    path: &#x27;template-engine-cp/edit/:name&#x27;,
+    component: EditComponent
   }
-  
+
 ];
 
 @NgModule({

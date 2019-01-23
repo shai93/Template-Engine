@@ -11,14 +11,24 @@ import { ApiService } from '../api.service';
 })
 export class EditComponent implements OnInit {
 
+  /**
+   * template name
+   */
+  templateName: any;
+  /**
+   * single template
+   */
+  template: any;
 
-  templateName:any;
-  template:any;
-
+  /**
+   * Create instance of EditComponent
+   * @param route 
+   * @param apiService 
+   */
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
-    this.route.params.subscribe(params => 
+    this.route.params.subscribe(params =>
       this.templateName = params['name']
-      );
+    );
   }
 
 
@@ -26,13 +36,20 @@ export class EditComponent implements OnInit {
     this.getTemplate();
   }
 
+  /**
+   * get partocular template
+   */
   getTemplate() {
     this.apiService.getTemplate(this.templateName).subscribe((data: any) => {
-      this.template = {data:data.templates[0]};
+      this.template = { data: data.templates[0] };
       console.log(this.template);
     });
   }
 
+  /**
+   * submit form data
+   * @param submission 
+   */
   onSubmit(submission: any) {
     console.log("form data", submission.data);
     this.apiService.updateTemplate(submission.data).subscribe((response) => {

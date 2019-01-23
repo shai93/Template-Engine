@@ -179,12 +179,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/edit/edit.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/edit/edit.component.ts:21</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Create instance of EditComponent</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -260,13 +262,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/edit/edit.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/edit/edit.component.ts:42</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>get partocular template</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -298,7 +302,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/edit/edit.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/edit/edit.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -336,13 +340,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/edit/edit.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/edit/edit.component.ts:53</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>submit form data</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -417,10 +423,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/edit/edit.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/edit/edit.component.ts:21</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>single template</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -451,10 +463,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/edit/edit.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/edit/edit.component.ts:17</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>template name</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -477,14 +495,24 @@ import { ApiService } from &#x27;../api.service&#x27;;
 })
 export class EditComponent implements OnInit {
 
+  /**
+   * template name
+   */
+  templateName: any;
+  /**
+   * single template
+   */
+  template: any;
 
-  templateName:any;
-  template:any;
-
+  /**
+   * Create instance of EditComponent
+   * @param route 
+   * @param apiService 
+   */
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
-    this.route.params.subscribe(params &#x3D;&gt; 
+    this.route.params.subscribe(params &#x3D;&gt;
       this.templateName &#x3D; params[&#x27;name&#x27;]
-      );
+    );
   }
 
 
@@ -492,13 +520,20 @@ export class EditComponent implements OnInit {
     this.getTemplate();
   }
 
+  /**
+   * get partocular template
+   */
   getTemplate() {
     this.apiService.getTemplate(this.templateName).subscribe((data: any) &#x3D;&gt; {
-      this.template &#x3D; {data:data.templates[0]};
+      this.template &#x3D; { data: data.templates[0] };
       console.log(this.template);
     });
   }
 
+  /**
+   * submit form data
+   * @param submission 
+   */
   onSubmit(submission: any) {
     console.log(&quot;form data&quot;, submission.data);
     this.apiService.updateTemplate(submission.data).subscribe((response) &#x3D;&gt; {

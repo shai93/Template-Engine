@@ -123,12 +123,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/api.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/api.service.ts:16</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Create instance of ApiService</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -188,13 +190,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/api.service.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/api.service.ts:28</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>create template</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -253,13 +257,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/api.service.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/api.service.ts:51</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>get particular template based on template name</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -322,13 +328,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/api.service.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/api.service.ts:43</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>get all templates</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -360,13 +368,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/api.service.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/api.service.ts:36</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>update particular template</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -375,6 +385,7 @@
                                             <tr>
                                                 <td>Name</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -386,6 +397,10 @@
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>form data</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -442,10 +457,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/api.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/api.service.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>template url</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -467,22 +488,44 @@ import { catchError, tap, map } from &#x27;rxjs/operators&#x27;;
 })
 export class ApiService {
 
+  /**
+   * template url
+   */
   API_URL &#x3D; &#x27;https://breeze.accion.rocks/template-engine-api/api/v1&#x27;;
 
+  /**
+   * Create instance of ApiService
+   * @param http 
+   */
   constructor(private http: HttpClient) { }
 
+  /**
+   * create template
+   * @param submission 
+   */
   createTemplate(submission) {
     return this.http.post(this.API_URL, submission);
   }
 
-  updateTemplate(submission){
-    return this.http.put(this.API_URL,submission);
+  /**
+   * update particular template
+   * @param submission form data
+   */
+  updateTemplate(submission) {
+    return this.http.put(this.API_URL, submission);
   }
 
+  /**
+   * get all templates
+   */
   getTemplates() {
     return this.http.get(this.API_URL);
   }
 
+  /**
+   * get particular template based on template name
+   * @param templateName 
+   */
   getTemplate(templateName: any) {
     return this.http.get(this.API_URL, {
       params: { name: templateName }

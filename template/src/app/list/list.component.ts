@@ -9,8 +9,15 @@ import { ApiService } from '../api.service';
 })
 export class ListComponent implements OnInit {
 
-  lists:any;
+  /**
+   * lists of all templates
+   */
+  lists: any;
 
+  /**
+   * Create instance of ListComponent
+   * @param apiService 
+   */
   constructor(private apiService: ApiService) { }
 
 
@@ -18,6 +25,9 @@ export class ListComponent implements OnInit {
     this.getTemplates();
   }
 
+  /**
+   * get all templates
+   */
   getTemplates() {
     this.apiService.getTemplates().subscribe((data: any) => {
       this.lists = data.templates;

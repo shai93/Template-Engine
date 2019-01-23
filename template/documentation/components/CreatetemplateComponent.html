@@ -165,6 +165,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>creates instance of CreatetemplateComponent</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -228,7 +230,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/createtemplate/createtemplate.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/createtemplate/createtemplate.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -266,13 +268,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/createtemplate/createtemplate.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/createtemplate/createtemplate.component.ts:24</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>submit form data</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -329,12 +333,20 @@ import { ApiService } from &#x27;../api.service&#x27;;
   styleUrls: [&#x27;./createtemplate.component.scss&#x27;]
 })
 export class CreatetemplateComponent implements OnInit {
-  
+
+  /**
+   * creates instance of CreatetemplateComponent
+   * @param apiService 
+   */
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
   }
 
+  /**
+   * submit form data
+   * @param submission 
+   */
   onSubmit(submission: any) {
     console.log(&quot;form data&quot;, submission);
     this.apiService.createTemplate(submission.data).subscribe((response) &#x3D;&gt; {
