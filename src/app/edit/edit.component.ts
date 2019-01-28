@@ -42,7 +42,6 @@ export class EditComponent implements OnInit {
   getTemplate() {
     this.apiService.getTemplate(this.templateName).subscribe((data: any) => {
       this.template = { data: data.templates[0] };
-      console.log(this.template);
     });
   }
 
@@ -51,9 +50,7 @@ export class EditComponent implements OnInit {
    * @param submission 
    */
   onSubmit(submission: any) {
-    console.log("form data", submission.data);
-    this.apiService.updateTemplate(submission.data).subscribe((response) => {
-      console.log(response);
+    this.apiService.updateTemplate(submission).subscribe((response) => {
     });
   }
 

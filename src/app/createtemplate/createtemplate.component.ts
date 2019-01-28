@@ -22,9 +22,7 @@ export class CreatetemplateComponent implements OnInit {
    * @param submission 
    */
   onSubmit(submission: any) {
-    console.log("form data", submission);
-    this.apiService.createTemplate(submission.data).subscribe((response) => {
-      console.log(response);
+    this.apiService.createTemplate(submission).subscribe((response) => {
     });
   }
 

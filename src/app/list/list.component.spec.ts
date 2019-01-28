@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ListComponent } from './list.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { ApiService } from '../api.service';
+import { Component } from '@angular/compiler/src/core';
 
 
 describe('ListComponent', () => {
@@ -10,10 +12,11 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule,HttpClientTestingModule],
-      declarations: [ ListComponent ]
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      declarations: [ListComponent],
+      providers: [ApiService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -25,4 +28,11 @@ describe('ListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get templates', () => {
+    let list = component.lists;
+    component.ngOnInit();
+    expect(list).not.toBeNull();
+  });
+
 });

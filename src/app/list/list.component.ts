@@ -31,7 +31,6 @@ export class ListComponent implements OnInit {
   getTemplates() {
     this.apiService.getTemplates().subscribe((data: any) => {
       this.lists = data.templates;
-      console.log(this.lists);
     });
   }
 

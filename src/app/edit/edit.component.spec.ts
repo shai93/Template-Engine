@@ -15,6 +15,14 @@ describe('EditComponent', () => {
   let fixture: ComponentFixture<EditComponent>;
   let httpClient: HttpClient;
   const route = ({ params: of({ name: 'SAMPLETEMPLATE' }) } as any) as ActivatedRoute;
+  let submission: {
+    "template_type": "handlebars",
+    "template": "hello {{fname}} {{lname}}! Welcome to Breeze!",
+    "name": "1abc1234",
+    "description": "Test new template for testing template engine new",
+    "updated_by": "pooja-salot",
+    "active": 1
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -46,4 +54,14 @@ describe('EditComponent', () => {
       expect(data.error).toBe(null);
     });
   });
+
+  it('should form submit', () => {
+    expect(component.onSubmit(submission)).toBeUndefined();
+  });
+
+  // it('should update form', () => {
+  //   component.template = { data: submission };
+  //   expect(component.template).toBeTruthy();
+  //   expect(component.template).not.toBeDefined();
+  // });
 });
