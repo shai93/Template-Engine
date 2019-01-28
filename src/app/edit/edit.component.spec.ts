@@ -55,9 +55,9 @@ describe('EditComponent', () => {
     });
   });
 
-  it('should form submit', () => {
-    expect(component.onSubmit(submission)).toBeUndefined();
-  });
+  // it('should form submit', () => {
+  //   expect(component.onSubmit(submission)).toBeUndefined();
+  // });
 
   // it('should update form', () => {
   //   component.template = { data: submission };
